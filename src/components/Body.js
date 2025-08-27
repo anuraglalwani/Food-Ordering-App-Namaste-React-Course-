@@ -92,16 +92,16 @@ const Body = () => {
       <div className="res-container">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}
 
-        {filteredRestaurant?.map((restaurant) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]?.map((restaurantId, idx) => (
           <Link
             style={{
               textDecoration: "none",
               color: "#000",
             }}
-            key={restaurant.data.id}
-            to={"/restaurants/" + restaurant.data.id}
+            key={idx}
+            to={"/restaurants/" + restaurantId}
           >
-            <RestaurantCard resData={restaurant} />
+            <RestaurantCard />
           </Link>
         ))}
       </div>

@@ -1,11 +1,13 @@
-import { LOGO_URL } from '../utils/constants';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { LOGO_URL } from "../utils/constants";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   //   let btnName = 'Login';
 
-  const [btnNameReact, setBtnNameReact] = useState('Login');
+  const [btnNameReact, setBtnNameReact] = useState("Login");
+  const onlineStatus = useOnlineStatus();
   // console.log('header render');
 
   // * if no dependency array => useEffect is called on every component render of the component
@@ -31,6 +33,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li> Online Status: {onlineStatus ? "🟢" : "🔴"} </li>
           <li>
             <Link to="/" className="links">
               Home
@@ -53,9 +56,9 @@ const Header = () => {
             className="loginBtn"
             onClick={() => {
               //   btnName = 'Logout';
-              btnNameReact === 'Login'
-                ? setBtnNameReact('Logout')
-                : setBtnNameReact('Login');
+              btnNameReact === "Login"
+                ? setBtnNameReact("Logout")
+                : setBtnNameReact("Login");
               console.log(btnNameReact);
             }}
           >
