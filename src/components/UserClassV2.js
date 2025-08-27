@@ -14,19 +14,19 @@ class UserClassV2 extends React.Component {
     const data = await fetch("https://api.github.com/users/anuraglalwani");
     const json = await data.json();
     this.setState({ name: json.login });
+    this.timer = setInterval(() => {
+      console.log("Interval clg");
+    }, 1000);
   }
   componentDidUpdate(prevprops, prevState) {
     if (this.state.count != prevState.count) {
     }
     if (this.state.coun2 != prevState.count2) {
     }
-    this.timer = setInterval(() => {
-      console.log("Interval clg");
-    }, 1000);
   }
   componentWillUnmount() {
     console.log("unmount");
-    clearInterval(this.timer);
+    //clearInterval(this.timer);
   }
 
   render() {
