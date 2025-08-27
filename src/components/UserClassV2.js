@@ -15,8 +15,18 @@ class UserClassV2 extends React.Component {
     const json = await data.json();
     this.setState({ name: json.login });
   }
+  componentDidUpdate(prevprops, prevState) {
+    if (this.state.count != prevState.count) {
+    }
+    if (this.state.coun2 != prevState.count2) {
+    }
+    this.timer = setInterval(() => {
+      console.log("Interval clg");
+    }, 1000);
+  }
   componentWillUnmount() {
     console.log("unmount");
+    clearInterval(this.timer);
   }
 
   render() {
