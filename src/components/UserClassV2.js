@@ -3,18 +3,26 @@ class UserClassV2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
-      count2: 1,
+      // count: 0,
+      // count2: 1,
+      name: "Dummy",
     };
-    console.log("constructor UserClassV2");
+    console.log(this.props.name + " constructor");
   }
-  componentDidMount() {
-    console.log("componentDidMount UserClassV2");
+  async componentDidMount() {
+    console.log(this.props.name + " componentDidMount");
+    const data = await fetch("https://api.github.com/users/anuraglalwani");
+    const json = await data.json();
+    this.setState({ name: json.login });
   }
+  componentWillUnmount() {
+    console.log("unmount");
+  }
+
   render() {
-    console.log("render  UserClassV2");
-    const { name, location, contact } = this.props;
-    const { count, count2 } = this.state;
+    console.log(this.props.name + " render ");
+    const { location, contact } = this.props;
+    const { count, count2, name } = this.state;
     return (
       <div style={{ marginLeft: "25px" }}>
         <h2>{count}</h2>

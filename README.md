@@ -17,3 +17,6 @@
   - Use `clearInterval` to fix the issue caused by the interval
 
 ## [Food App About Page](https://food-app-about-page.netlify.app/)
+
+<!--React-lifecycle-methods-diagram -->
+<!-- https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ -->
