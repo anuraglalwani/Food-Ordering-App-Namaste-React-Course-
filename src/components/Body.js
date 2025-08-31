@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { cardWithLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import Datajson from "./data.json";
@@ -14,6 +14,7 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState("");
+  const PromotedCard = cardWithLabel(RestaurantCard);
 
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
   // console.log('Body rendered');
@@ -101,7 +102,11 @@ const Body = () => {
             key={idx}
             to={"/restaurants/" + restaurantId}
           >
-            <RestaurantCard />
+            {idx < 4 ? (
+              <PromotedCard idx={idx} />
+            ) : (
+              <RestaurantCard idx={idx} />
+            )}
           </Link>
         ))}
       </div>

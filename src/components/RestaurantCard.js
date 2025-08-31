@@ -3,7 +3,7 @@ import { FiClock } from "react-icons/fi";
 import { AiOutlineStar } from "react-icons/ai";
 
 const RestaurantCard = (props) => {
-
+  console.log("in RestaurantCard ", props?.idx);
   return (
     <div className="res-card">
       <div className="res-img">
@@ -36,6 +36,30 @@ const RestaurantCard = (props) => {
       </div>
     </div>
   );
+};
+
+export const cardWithLabel = (RestaurantCard) => {
+  const HOC = (props) => {
+    console.log("in HOC ", props?.idx);
+    return (
+      <div>
+        <label
+          style={{
+            position: "absolute",
+            margin: "3px",
+            padding: "3px",
+            background: "black",
+            color: "white",
+            borderRadius: "4px",
+          }}
+        >
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+  return HOC;
 };
 
 export default RestaurantCard;

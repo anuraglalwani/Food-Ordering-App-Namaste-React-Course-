@@ -1,0 +1,19 @@
+import React from "react";
+
+function CategoryList({ cards }) {
+  console.log(cards, "cards");
+  return (
+    <div className="categoryList">
+      {cards?.map((item) => {
+        return (
+          <div key={item?.card?.info?.id}>
+            <p className="name">{item?.card?.info?.name}</p>
+            <p className="description">{item?.card?.info?.description}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default CategoryList;
