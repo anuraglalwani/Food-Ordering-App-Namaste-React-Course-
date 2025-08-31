@@ -12,6 +12,7 @@ import CategoryItem from "./CategoryItem";
 const RestaurantMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
   const [categoryCards, setCategoryCards] = useState([]);
+  const [openedCategoryId, setOpenCategoryId] = useState(null);
   const { resId } = useParams();
   const fetchData = async () => {
     const result = await fetch(
@@ -35,6 +36,13 @@ const RestaurantMenu = () => {
   if (resInfo === null) return <></>;
 
   const { brand, thumbnail, category, rating, title, price } = resInfo;
+  const handleClick = (id) => {
+    if (openedCategoryId === id) {
+      setOpenCategoryId(null);
+    } else {
+      setOpenCategoryId(id);
+    }
+  };
 
   return (
     <div className="menu">
@@ -82,7 +90,11 @@ const RestaurantMenu = () => {
         {categoryCards?.map((category, id) => {
           return (
             <div key={id}>
-              <CategoryItem data={category?.card?.card} />
+              <CategoryItem
+                data={category?.card?.card}
+                handleClick={handleClick}
+                openCategoryId={openedCategoryId}
+              />
             </div>
           );
         })}

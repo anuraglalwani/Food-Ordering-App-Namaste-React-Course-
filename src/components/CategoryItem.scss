@@ -3,6 +3,7 @@
   border-bottom: 1px solid grey;
   width: 50%;
   margin: auto;
+
   .category-item-header {
     font-weight: 400;
     font-size: 1.2rem;
@@ -20,5 +21,9 @@
   }
   .categoryList {
     text-align: left;
+  }
+  .list {
+    border-bottom: 1px solid grey;
+    padding: 10px;
   }
 }
