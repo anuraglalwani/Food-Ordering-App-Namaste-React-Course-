@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard, { cardWithLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import Datajson from "./data.json";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
   // * React Hook -> A normal JavaScript function which is given to us by React (or) Normal JS utility functions
@@ -15,6 +16,9 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("");
   const PromotedCard = cardWithLabel(RestaurantCard);
+
+  // CONTEXT
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   // * Whenever a state variable updates or changes, react triggers a reconciliation cycle(re-renders the component)
   // console.log('Body rendered');
@@ -89,6 +93,16 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        <div>
+          <label> Name: </label>
+          <input
+            style={{ border: "1px solid grey", padding: "4px" }}
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
+        </div>
       </div>
       <div className="res-container">
         {/* // * looping through the <RestaurentCard /> components Using Array.map() method */}

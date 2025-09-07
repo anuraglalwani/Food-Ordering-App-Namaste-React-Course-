@@ -1,7 +1,6 @@
 import React from "react";
 
 function CategoryList({ cards }) {
-  console.log(cards, "cards");
   return (
     <div className="categoryList">
       {cards?.map((item) => {

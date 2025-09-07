@@ -12,7 +12,7 @@ import CategoryItem from "./CategoryItem";
 const RestaurantMenu = () => {
   // const [resInfo, setResInfo] = useState(null);
   const [categoryCards, setCategoryCards] = useState([]);
-  const [openedCategoryId, setOpenCategoryId] = useState(null);
+  const [openedCategoryId, setOpenCategoryId] = useState(0);
   const { resId } = useParams();
   const fetchData = async () => {
     const result = await fetch(
@@ -91,6 +91,7 @@ const RestaurantMenu = () => {
           return (
             <div key={id}>
               <CategoryItem
+                // index={id}
                 data={category?.card?.card}
                 handleClick={handleClick}
                 openCategoryId={openedCategoryId}

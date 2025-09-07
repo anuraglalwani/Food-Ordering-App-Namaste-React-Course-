@@ -1,9 +1,11 @@
 import { CDN_URL } from "../utils/constants";
 import { FiClock } from "react-icons/fi";
 import { AiOutlineStar } from "react-icons/ai";
+import { useContext } from "react";
+import userContext from "../utils/userContext";
 
 const RestaurantCard = (props) => {
-  console.log("in RestaurantCard ", props?.idx);
+  const { loggedInUser } = useContext(userContext);
   return (
     <div className="res-card">
       <div className="res-img">
@@ -33,6 +35,7 @@ const RestaurantCard = (props) => {
           </span>
           <span> {23} minutes</span>
         </h4>
+        <h5>{loggedInUser}</h5>
       </div>
     </div>
   );
