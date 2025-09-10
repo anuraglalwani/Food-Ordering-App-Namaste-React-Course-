@@ -1,0 +1,22 @@
+.category-item-header {
+  font-weight: 400;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name {
+  font-weight: 200;
+  font-size: 0.8rem;
+}
+.description {
+  font-size: 0.5rem;
+  color: grey;
+}
+.categoryList {
+  text-align: left;
+}
+.list {
+  border-bottom: 1px solid grey;
+  padding: 10px;
+}
